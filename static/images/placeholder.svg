@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="30" fill="#0f172a" />
+  <rect x="40" y="80" width="320" height="140" rx="20" fill="#1e3a8a" />
+  <text x="200" y="170" font-family="Segoe UI, sans-serif" font-size="28" fill="#cbd5e1" text-anchor="middle">Image</text>
+  <text x="200" y="205" font-family="Segoe UI, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">placeholder</text>
+</svg>

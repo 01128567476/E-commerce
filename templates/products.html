@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="product-hero">
+    <div class="hero-bar">
+        <div>
+            <p class="eyebrow">Mobile Accessories & Phones</p>
+            <h2>Designed for modern mobile lifestyles.</h2>
+        </div>
+        <p class="hero-note"><strong>{{ products|length }} curated items</strong> for premium phone protection, charging, and everyday essentials.</p>
+    </div>
+</section>
+
+<section>
+    <div class="product-grid">
+        {% for product in products %}
+        <article class="card product-card">
+            <img class="product-image" src="{{ url_for('static', filename=product['image_url'] or 'images/placeholder.svg') }}" alt="{{ product['name'] }}" />
+            <div class="details">
+                <h3>{{ product['name'] }}</h3>
+                <p>{{ product['description'] }}</p>
+            </div>
+            <div class="product-meta">
+                <span class="price">${{ '%.2f' | format(product['price']) }}</span>
+                <span class="badge">Stock: {{ product['stock'] }}</span>
+            </div>
+            <div class="product-actions">
+                <a class="button-secondary" href="{{ url_for('add_to_cart', product_id=product['id']) }}">Add to Cart</a>
+            </div>
+        </article>
+        {% else %}
+        <div class="card empty-state">
+            <p>No products currently available.</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

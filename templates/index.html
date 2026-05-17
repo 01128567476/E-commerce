@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Modern Mini Store for Fast Online Shopping</h1>
+        <p>Browse products, sign in, add items to your cart, and complete checkout in a few smooth steps.</p>
+        <a class="button-primary" href="{{ url_for('products') }}">Start Shopping</a>
+    </div>
+</section>
+
+<section class="card-grid">
+    <div class="card">
+        <h3>Product Catalog</h3>
+        <p>Display products from the database with a clean, modern layout and easy updates.</p>
+    </div>
+    <div class="card">
+        <h3>Smart Cart</h3>
+        <p>Add items, review quantities, and manage your cart with a polished interface.</p>
+    </div>
+    <div class="card">
+        <h3>Order System</h3>
+        <p>Save orders in the database with shipping details and email confirmation support.</p>
+    </div>
+</section>
+{% endblock %}

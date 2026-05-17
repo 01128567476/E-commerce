@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Order Confirmed</h2>
+    <p>Thank you for shopping with us! Your order has been placed successfully.</p>
+    <p>Final total: <strong>${{ '%.2f' | format(total) }}</strong></p>
+    <a class="button-primary" href="{{ url_for('products') }}">Back to Store</a>
+</div>
+{% endblock %}

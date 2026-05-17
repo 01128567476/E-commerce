@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section>
+    <h2>Admin Inventory Management</h2>
+    <p>Use this panel to increase stock for products. Admin users do not use the shopping cart or order pages.</p>
+    <div class="button-row" style="margin-bottom: 18px;">
+        <a class="button-secondary" href="{{ url_for('admin_users') }}">View Users</a>
+        <a class="button-primary" href="{{ url_for('products') }}">Store Products</a>
+    </div>
+    {% if products %}
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Increase</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product['id'] }}</td>
+                <td>{{ product['name'] }}</td>
+                <td>{{ product['description'] }}</td>
+                <td>${{ '%.2f' | format(product['price']) }}</td>
+                <td>{{ product['stock'] }}</td>
+                <td>
+                    <form action="{{ url_for('update_stock', product_id=product['id']) }}" method="post" style="display:flex; gap:6px; align-items:center;">
+                        <input type="number" name="amount" min="1" value="10" style="width:80px; padding:8px; border-radius:8px; border:1px solid #ccc; background:#0f172a; color:#fff;" />
+                        <button class="button-primary" type="submit">Add</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No products found.</p>
+    {% endif %}
+</section>
+{% endblock %}

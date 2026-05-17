@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section>
+    <h2>My Orders</h2>
+    {% if orders %}
+    <div class="card-grid">
+        {% for order in orders %}
+        <div class="card order-card">
+            <h3>Order #{{ order['id'] }}</h3>
+            <p>Items: {{ order['items'] }}</p>
+            <p>Total: ${{ '%.2f' | format(order['total']) }}</p>
+            <p>Address: {{ order['address'] }}</p>
+            <p>Email: {{ order['email'] }}</p>
+            <p style="opacity: 0.8; margin-top: 12px;">Created: {{ order['created_at'] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="card">
+        <p>You have not placed any orders yet.</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

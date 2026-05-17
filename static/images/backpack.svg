@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="30" fill="#0f172a" />
+  <path d="M120 240 C120 120 280 120 280 240 Z" fill="#0ea5e9" />
+  <rect x="140" y="110" width="120" height="100" rx="20" fill="#c7d2fe" />
+  <path d="M160 110 L160 80 C160 60 170 50 190 50 H210 C230 50 240 60 240 80 L240 110" fill="#c7d2fe" />
+  <circle cx="200" cy="180" r="15" fill="#0f172a" />
+  <text x="200" y="280" font-family="Segoe UI, sans-serif" font-size="24" fill="#cbd5e1" text-anchor="middle">Backpack</text>
+</svg>

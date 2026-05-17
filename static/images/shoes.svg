@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="30" fill="#0f172a" />
+  <path d="M80 210 C110 180 140 150 220 140 S310 180 330 210" fill="#2563eb" />
+  <path d="M90 210 C130 180 160 160 220 160 S310 190 330 210" fill="#bfdbfe" opacity="0.8" />
+  <circle cx="120" cy="190" r="8" fill="#f8fafc" />
+  <circle cx="260" cy="185" r="8" fill="#f8fafc" />
+  <text x="200" y="280" font-family="Segoe UI, sans-serif" font-size="24" fill="#cbd5e1" text-anchor="middle">Shoes</text>
+</svg>

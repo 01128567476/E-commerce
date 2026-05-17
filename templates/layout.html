@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurora Mobile Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a class="logo" href="{{ url_for('index') }}">Aurora Mobile</a>
+            <nav class="nav-links">
+                {% if user %}
+                    <a href="{{ url_for('products') }}">Products</a>
+                    {% if not user.is_admin %}
+                        <a href="{{ url_for('view_cart') }}">Cart{% if cart_count %} ({{ cart_count }}){% endif %}</a>
+                        <a href="{{ url_for('orders') }}">My Orders</a>
+                    {% endif %}
+                    {% if user.is_admin %}<a href="{{ url_for('admin_products') }}">Admin</a>{% endif %}
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <a href="{{ url_for('register') }}">Register</a>
+                {% endif %}
+            </nav>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="toast {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+
+        <footer class="footer">
+            &copy; 2026 Mini Store. Simple store with orders and database.
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

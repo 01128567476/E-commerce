@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section>
+    <h2>Admin Panel - Registered Users</h2>
+    <div class="button-row" style="margin-bottom: 24px;">
+        <a class="button-secondary" href="{{ url_for('admin_users') }}">View Users</a>
+        <a class="button-primary" href="{{ url_for('admin_products') }}">Store Products</a>
+    </div>
+    {% if users %}
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user['id'] }}</td>
+                <td>{{ user['username'] }}</td>
+                <td>{{ user['email'] }}</td>
+                <td><span class="badge" style="{% if user['is_admin'] %}background: rgba(34, 197, 94, 0.2); color: #86efac;{% else %}background: rgba(156, 163, 175, 0.2); color: #d1d5db;{% endif %}">{% if user['is_admin'] %}Admin{% else %}User{% endif %}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p style="margin-top: 16px; opacity: 0.8;"><strong>Total Users:</strong> {{ users|length }}</p>
+    {% else %}
+    <p>No users registered yet.</p>
+    {% endif %}
+</section>
+
+<section style="margin-top: 36px;">
+    <h2>Login Activity Log</h2>
+    {% if login_log %}
+    <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 16px; font-family: 'Courier New', monospace; font-size: 0.9rem; max-height: 400px; overflow-y: auto;">
+        {% for log_entry in login_log %}
+        <div style="padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); color: {% if 'Successful' in log_entry %}#86efac{% elif 'Failed' in log_entry %}#fca5a5{% else %}#e5e8ff{% endif %};">
+            {{ log_entry }}
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No login activity yet.</p>
+    {% endif %}
+</section>
+{% endblock %}

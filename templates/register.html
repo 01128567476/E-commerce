@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="form-card">
+    <h2>Create a New Account</h2>
+    <form method="post" action="{{ url_for('register') }}">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Username" required />
+        <label>Email</label>
+        <input type="email" name="email" placeholder="example@mail.com" required />
+        <label>Password</label>
+        <input type="password" name="password" placeholder="********" required />
+        <label>Confirm Password</label>
+        <input type="password" name="confirm" placeholder="********" required />
+        <button class="button-primary" type="submit">Create Account</button>
+    </form>
+</div>
+{% endblock %}
