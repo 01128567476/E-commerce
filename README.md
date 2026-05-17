@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mini E-Commerce System
 
 A professional mini e-commerce store with:
@@ -29,3 +30,6 @@ A professional mini e-commerce store with:
 - You can edit products in `init_db.py` or directly within the SQLite database.
 - Product images live in `static/images/` and are referenced from the database.
 - If you change `PRODUCT_DATA` after `db.sqlite3` exists, delete `db.sqlite3` and rerun `python init_db.py` to refresh the sample data.
+=======
+# E-commerce
+>>>>>>> 2a3ede0222190451d583a322be632f92df838783
